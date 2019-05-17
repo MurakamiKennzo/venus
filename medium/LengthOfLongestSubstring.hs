@@ -9,7 +9,7 @@ import Data.List (inits, nub)
 import Data.Function (on)
 
 lengthOfLongestSubstring :: String -> Int
-lengthOfLongestSubstring = foldl max 0. map length . uniqStrings . subStrings
+lengthOfLongestSubstring = foldl max 0 . map length . uniqStrings . subStrings
 
 uniqStrings :: [String] -> [String]
 uniqStrings = filter (\x -> ((==) `on` length) x $ nub x)
