@@ -1,3 +1,5 @@
+-- Give a string and get it's zigzag pattern.
+
 module Convert 
   (
     convert
