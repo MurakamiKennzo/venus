@@ -27,7 +27,7 @@ isValidColumn a = and . map uniq $ map (\i -> map (!! i) a) [0 .. 8]
 isValidBoxed :: Sudoku -> Bool
 isValidBoxed a = 
   let indices = [[(x, y) | x <- xs, y <- ys]
-                          | let indices = [[0 .. 2], [3 .. 5], [6 .. 8]], xs <- indices, ys <- indices]
+                         | let indices = [[0 .. 2], [3 .. 5], [6 .. 8]], xs <- indices, ys <- indices]
   in  and . map uniq . map (map (\(x, y) -> a !! x !! y)) $ indices
 
 uniq :: [Char] -> Bool
