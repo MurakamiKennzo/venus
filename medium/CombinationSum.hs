@@ -17,6 +17,5 @@ combinationSum [] _ = []
 combinationSum [a] b = if a == b then [[a]] else []
 combinationSum a@(x:xs) b = 
   let one = combinationSum xs b
-      two = case b - x of
-              c -> if c < 0 then [] else if c == 0 then [[x]] else map (x:) $ combinationSum a c
+      two = let c = b - x in if c < 0 then [] else if c == 0 then [[x]] else map (x:) $ combinationSum a c
   in  one ++ two
