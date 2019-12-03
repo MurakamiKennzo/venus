@@ -8,9 +8,9 @@ module LongestConsecutive
 import Data.List ( sort
                  , sortOn )
 
-longestConsecutive :: [Int] -> [Int]
-longestConsecutive [] = []
-longestConsecutive a = last . sortOn length . groupBy' (\a b -> succ a == b) . sort $ a
+longestConsecutive :: [Int] -> Int
+longestConsecutive [] = 0
+longestConsecutive a = last . sort . map length . groupBy' (\a b -> succ a == b) . sort $ a
 
 groupBy' :: (a -> a -> Bool) -> [a] -> [[a]]
 groupBy' _ [] = []
