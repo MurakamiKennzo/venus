@@ -15,7 +15,7 @@ computeArea' :: (Num a, Ord a) => Rectangle a -> Rectangle a -> a
 computeArea' a b
   | aa' `inArea` bb' = let (Point (l, b), Point (r, t)) = aa'
                            (Point (l', b'), Point (r', t')) = bb'
-                       in  (r - l') * (min t t' - max b b')
+                       in  (min r r - max l l') * (min t t' - max b b')
   | otherwise = 0
   where aa' = min a b
         bb' = max a b
