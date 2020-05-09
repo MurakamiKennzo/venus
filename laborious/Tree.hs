@@ -57,8 +57,7 @@ instance (Read a) => Read (Node a) where
     (a, b) <- lex s
     return $ case a of
       "null" -> [(Nil, b)]
-      "-" -> [ (TNode . read $ '-':c, d) | (c, d) <- lex b ]
-      a -> [(TNode . read $ a, b)]
+      _ -> map (\(a, b) -> (TNode a, b)) $ reads s
 
 data Tree a = Empty
-            | Node a (Tree a) (Tree a) deriving (Show, Eq, Ord)
+            | Node a (Tree a) (Tree a) deriving (Show, Eq, Ord, Read)
