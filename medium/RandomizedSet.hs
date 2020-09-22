@@ -14,7 +14,8 @@ module RandomizedSet
 
 import Control.Monad.State ( StateT(StateT) )
 import System.Random
-import Data.List hiding ( insert )
+import Data.List ( delete
+                 , insert )
 
 insert :: (Eq a) => a -> StateT [a] IO ()
 insert a = StateT $ \s -> return ((), insert' a s)
